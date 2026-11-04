@@ -23,19 +23,22 @@ const overrides = require('../../../lib/overrides');
 const OVERRIDES_PATH = path.join(__dirname, '..', '..', '..', 'data', 'overrides.json');
 const TMP_PATH = `${OVERRIDES_PATH}.tmp`;
 
-// Remove the live and tmp override files, ignoring "file not found" errors so
-// cleanup never fails a test. Any other error is surfaced so we notice real
-// filesystem problems.
-function cleanup() {
-	for (const target of [OVERRIDES_PATH, TMP_PATH]) {
-		try {
-			fs.unlinkSync(target);
-		} catch (err) {
-			if (err.code !== 'ENOENT') {
-				throw err;
-			}
+// Remove a single file, ignoring "file not found" so cleanup never fails a
+// test. Any other error is surfaced so we notice real filesystem problems.
+function removeIfPresent(target) {
+	try {
+		fs.unlinkSync(target);
+	} catch (error) {
+		if (error.code !== 'ENOENT') {
+			throw error;
 		}
 	}
+}
+
+// Remove the live and tmp override files between tests.
+function cleanup() {
+	removeIfPresent(OVERRIDES_PATH);
+	removeIfPresent(TMP_PATH);
 }
 
 describe('lib/overrides', function() {

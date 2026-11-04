@@ -32,7 +32,7 @@ function finding(overrides) {
 
 // Locate a classified finding in a pool by its rule code.
 function byCode(pool, code) {
-	return pool.filter(f => f.code === code);
+	return pool.filter(item => item.code === code);
 }
 
 // --- Tests -----------------------------------------------------------------
@@ -62,7 +62,7 @@ describe('lib/compare', () => {
 
 	// ── Step 1: Exact match ──────────────────────────────────────────────────
 	describe('Step 1 — exact match (code + non-empty selector)', () => {
-		it('matches same code + same selector into persistent with label "exact" and isPrecise true', () => {
+		it('exact match: same code + selector -> persistent/exact, isPrecise true', () => {
 			const early = [finding({code: 'A',
 				selector: 'div > p'})];
 			const later = [finding({code: 'A',
@@ -134,7 +134,7 @@ describe('lib/compare', () => {
 
 	// ── Step 3: Missing-selector context match ───────────────────────────────
 	describe('Step 3 — missing-selector context match', () => {
-		it('matches when early selector present but late selector MISSING (same code + context)', () => {
+		it('matches when early selector present but late selector missing', () => {
 			const early = [finding({code: 'A',
 				selector: 'div > p',
 				context: '<p>x</p>'})];
@@ -147,7 +147,7 @@ describe('lib/compare', () => {
 			assert.strictEqual(result.persistent[0].matchLabel, 'code-and-context');
 		});
 
-		it('matches when early selector MISSING but late selector present (same code + context)', () => {
+		it('matches when early selector missing but late selector present', () => {
 			const early = [finding({code: 'A',
 				selector: '',
 				context: '<p>x</p>'})];
@@ -173,8 +173,8 @@ describe('lib/compare', () => {
 			assert.strictEqual(result.persistent[0].matchLabel, 'code-and-context');
 		});
 
-		it('P12 — does NOT match via step 3 when both selectors present (that is step-2 territory)', () => {
-			// Same context, both selectors present & differing → must not be labelled code-and-context.
+		it('P12 - no step-3 match when both selectors present', () => {
+			// Same context, both selectors present and differing: not code-and-context.
 			const early = [finding({code: 'A',
 				selector: 'div > p',
 				context: '<p>x</p>'})];
@@ -188,7 +188,7 @@ describe('lib/compare', () => {
 			assert.strictEqual(result.persistent[0].matchLabel, 'context-fallback');
 		});
 
-		it('P12 — requires non-empty context: missing selector + empty context does not step-3 match', () => {
+		it('P12 - requires non-empty context for step-3 match', () => {
 			const early = [finding({code: 'A',
 				selector: null,
 				context: ''})];
@@ -261,11 +261,11 @@ describe('lib/compare', () => {
 			const result = compare(early, later);
 
 			assert.lengthEquals(result.persistent, 3);
-			result.persistent.forEach(f => {
-				if (f.matchLabel === 'code-only') {
-					assert.isFalse(f.isPrecise);
+			result.persistent.forEach(item => {
+				if (item.matchLabel === 'code-only') {
+					assert.isFalse(item.isPrecise);
 				} else {
-					assert.isTrue(f.isPrecise);
+					assert.isTrue(item.isPrecise);
 				}
 			});
 		});
@@ -299,7 +299,7 @@ describe('lib/compare', () => {
 
 	// ── P11: Ambiguity ──────────────────────────────────────────────────────
 	describe('P11 — ambiguous match exclusion', () => {
-		it('marks duplicates (same code+context) as "ambiguous" in likelyResolved and NOT persistent', () => {
+		it('marks duplicates as ambiguous in likelyResolved, not persistent', () => {
 			// Two early findings share code+context; two late findings too → ambiguous.
 			const early = [
 				finding({code: 'A',
@@ -324,8 +324,8 @@ describe('lib/compare', () => {
 			// The early ambiguous findings land in likelyResolved labelled 'ambiguous'.
 			const ambiguous = byCode(result.likelyResolved, 'A');
 			assert.lengthEquals(ambiguous, 2);
-			ambiguous.forEach(f => {
-				assert.strictEqual(f.matchLabel, 'ambiguous');
+			ambiguous.forEach(item => {
+				assert.strictEqual(item.matchLabel, 'ambiguous');
 			});
 		});
 
@@ -347,8 +347,8 @@ describe('lib/compare', () => {
 					context: '<li>dup</li>'})
 			];
 			const result = compare(early, later);
-			result.persistent.forEach(f => {
-				assert.notStrictEqual(f.matchLabel, 'ambiguous');
+			result.persistent.forEach(item => {
+				assert.notStrictEqual(item.matchLabel, 'ambiguous');
 			});
 			assert.lengthEquals(result.persistent, 0);
 		});

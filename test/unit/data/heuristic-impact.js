@@ -50,13 +50,13 @@ describe('data/heuristic-impact', function() {
 		try {
 			table.NEWKEY = {category: 'General',
 				rank: 4};
-		} catch (error) {
+		} catch {
 			// Adding to a frozen object throws in strict mode; that's fine.
 		}
 		assert.isUndefined(table.NEWKEY);
 	});
 
-	it('maps a representative sample spanning all five categories to the correct category and rank', function() {
+	it('maps a representative sample across all five categories', function() {
 		const table = getHeuristicImpact();
 		const expected = {
 			ARIA: {category: 'Screen-Reader Blocking',
@@ -83,8 +83,16 @@ describe('data/heuristic-impact', function() {
 		const table = getHeuristicImpact();
 		Object.keys(table).forEach(function(key) {
 			const entry = table[key];
-			assert.include(validCategories, entry.category, `entry ${key} has an invalid category: ${entry.category}`);
-			assert.include([1, 2, 3, 4, 5], entry.rank, `entry ${key} has an invalid rank: ${entry.rank}`);
+			assert.include(
+				validCategories,
+				entry.category,
+				`entry ${key} has an invalid category: ${entry.category}`
+			);
+			assert.include(
+				[1, 2, 3, 4, 5],
+				entry.rank,
+				`entry ${key} has an invalid rank: ${entry.rank}`
+			);
 		});
 	});
 
@@ -95,7 +103,7 @@ describe('data/heuristic-impact', function() {
 			assert.strictEqual(
 				entry.rank,
 				categoryToRank[entry.category],
-				`entry ${key} (${entry.category}) should have rank ${categoryToRank[entry.category]} but had ${entry.rank}`
+				`entry ${key} (${entry.category}) rank mismatch`
 			);
 		});
 	});
