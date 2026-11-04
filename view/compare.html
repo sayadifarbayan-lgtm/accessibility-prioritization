@@ -1,0 +1,82 @@
+{{!
+This file is part of Pa11y Dashboard.
+
+Pa11y Dashboard is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Pa11y Dashboard is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+{{#content "title"}}
+    Pa11y Dashboard — Scan Comparison — {{task.name}}
+{{/content}}
+
+<div class="col-md-12">
+    <h1 class="h2 crunch-top">Scan comparison: {{task.name}}</h1>
+    <p class="h4 text-muted">
+        Comparing {{earlierDate}} (earlier) with {{laterDate}} (later)
+    </p>
+
+    <div class="alert alert-info comparison-disclaimer" role="note">
+        <strong>Note:</strong>
+        Comparison results are inferred from automated scan data. A finding classified as
+        'Likely Resolved' may still exist if its element selector changed between scans.
+    </div>
+
+    <p>
+        <a class="link" href="/{{task.id}}">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            Back to task
+        </a>
+    </p>
+
+    <section class="comparison-section" aria-labelledby="resolved-heading">
+        <h2 id="resolved-heading">
+            Likely Resolved (not verified)
+            <span class="badge">{{totalResolved}}</span>
+        </h2>
+        {{#if likelyResolved.length}}
+            {{#each likelyResolved}}
+                {{> compare-finding-row finding=this}}
+            {{/each}}
+        {{else}}
+            <p class="text-muted">No findings in this category.</p>
+        {{/if}}
+    </section>
+
+    <section class="comparison-section" aria-labelledby="persistent-heading">
+        <h2 id="persistent-heading">
+            Persistent
+            <span class="badge">{{totalPersistent}}</span>
+        </h2>
+        {{#if persistent.length}}
+            {{#each persistent}}
+                {{> compare-finding-row finding=this}}
+            {{/each}}
+        {{else}}
+            <p class="text-muted">No findings in this category.</p>
+        {{/if}}
+    </section>
+
+    <section class="comparison-section" aria-labelledby="new-heading">
+        <h2 id="new-heading">
+            New
+            <span class="badge">{{totalNew}}</span>
+        </h2>
+        {{#if newFindings.length}}
+            {{#each newFindings}}
+                {{> compare-finding-row finding=this}}
+            {{/each}}
+        {{else}}
+            <p class="text-muted">No findings in this category.</p>
+        {{/if}}
+    </section>
+</div>

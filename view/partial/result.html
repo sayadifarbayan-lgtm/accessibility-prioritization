@@ -91,13 +91,14 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 		<div id="errors-list" role="tabpanel" class="tab-pane tasks-list fade in active" aria-labelledby="errors">
 			{{#if mainResult.count.error}}
 				{{#mainResult.errors}}
-					<div class="panel panel-default task task_type_error">
+					<div class="panel panel-default task task_type_error" data-priority-order="{{priorityOrder}}" data-impact-rank="{{impactCategoryRank}}" data-count="{{count}}">
 						<div class="panel-heading">
 							<div class="row">
 								<div class="col-md-9 col-sm-9 col-xs-8">
 									<span class="rule-name">{{code}}&ensp;
 										<span class="badge" title="{{count}} selector(s)" data-toggle="tooltip" data-role="rule-tooltip">{{count}}</span>
 									</span>
+									{{> priority-badge rule=this}}
 								</div>
 								<div class="col-md-3 col-sm-3 col-xs-4 task-actions">
 									{{#unless readonly}}
@@ -115,6 +116,8 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 						<div class="panel-body">
 							<span class="text">{{message}}</span>
 							<span class="btn btn-xs btn-link link btn-details" data-role="details-collapse" data-toggle="collapse" data-target="#error-index-{{@index}}" aria-expanded="false" aria-controls="error-index-{{@index}}">details</span>
+
+							{{> priority-override-form rule=this}}
 
 							<div class="task-details collapse" id="error-index-{{@index}}">
 								{{#if solutions.length}}
@@ -142,6 +145,8 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 										{{/each}}
 									</ul>
 								{{/if}}
+
+								{{> remediation rule=this}}
 							</div>
 						</div>
 					</div>
@@ -157,13 +162,14 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 		<div id="warnings-list" role="tabpanel" class="tab-pane tasks-list fade" aria-labelledby="warning">
 			{{#if mainResult.count.warning}}
 				{{#mainResult.warnings}}
-					<div class="panel panel-default task task_type_warning">
+					<div class="panel panel-default task task_type_warning" data-priority-order="{{priorityOrder}}" data-impact-rank="{{impactCategoryRank}}" data-count="{{count}}">
 						<div class="panel-heading">
 							<div class="row">
 								<div class="col-md-9 col-sm-9 col-xs-8">
 									<span class="rule-name">{{code}}&ensp;
 										<span class="badge" title="{{count}} selector(s)" data-toggle="tooltip" data-role="rule-tooltip">{{count}}</span>
 									</span>
+									{{> priority-badge rule=this}}
 								</div>
 								<div class="col-md-3 col-sm-3 col-xs-4 task-actions">
 									{{#unless readonly}}
@@ -181,6 +187,8 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 						<div class="panel-body">
 							<span class="text">{{message}}</span>
 							<span class="btn btn-xs btn-link link btn-details" data-role="details-collapse" data-toggle="collapse" data-target="#warning-index-{{@index}}" aria-expanded="false" aria-controls="warning-index-{{@index}}">details</span>
+
+							{{> priority-override-form rule=this}}
 
 							<div class="task-details collapse" id="warning-index-{{@index}}">
 								{{#if solutions.length}}
@@ -208,6 +216,8 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 										{{/each}}
 									</ul>
 								{{/if}}
+
+								{{> remediation rule=this}}
 							</div>
 						</div>
 					</div>
@@ -223,13 +233,14 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 		<div id="notices-list" role="tabpanel" class="tab-pane tasks-list fade" aria-labelledby="notices">
 			{{#if mainResult.count.notice}}
 				{{#mainResult.notices}}
-					<div class="panel panel-default task task_type_notice">
+					<div class="panel panel-default task task_type_notice" data-priority-order="{{priorityOrder}}" data-impact-rank="{{impactCategoryRank}}" data-count="{{count}}">
 						<div class="panel-heading">
 							<div class="row">
 								<div class="col-md-9 col-sm-9 col-xs-8">
 									<span class="rule-name">{{code}}&ensp;
 										<span class="badge" title="{{count}} selector(s)" data-toggle="tooltip" data-role="rule-tooltip">{{count}}</span>
 									</span>
+									{{> priority-badge rule=this}}
 								</div>
 								<div class="col-md-3 col-sm-3 col-xs-4 task-actions">
 									{{#unless readonly}}
@@ -247,6 +258,8 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 						<div class="panel-body">
 							<span class="text">{{message}}</span>
 							<span class="btn btn-xs btn-link link btn-details" data-role="details-collapse" data-toggle="collapse" data-target="#notice-index-{{@index}}" aria-expanded="false" aria-controls="notice-index-{{@index}}">details</span>
+
+							{{> priority-override-form rule=this}}
 
 							<div class="task-details collapse" id="notice-index-{{@index}}">
 								{{#if solutions.length}}
@@ -274,6 +287,8 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 										{{/each}}
 									</ul>
 								{{/if}}
+
+								{{> remediation rule=this}}
 							</div>
 						</div>
 					</div>

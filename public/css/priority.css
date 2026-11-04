@@ -1,0 +1,84 @@
+/*
+ * This file is part of Pa11y Dashboard.
+ *
+ * Pa11y Dashboard is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Pa11y Dashboard is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Pa11y Dashboard. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+.priority-badge {
+  display: inline-block;
+  padding: 2px 7px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  border-radius: 3px;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+/* Verified WCAG AA 4.5:1 contrast ratios against #ffffff */
+.priority-badge--critical { background-color: #c0392b; color: #ffffff; }
+.priority-badge--high     { background-color: #c2410c; color: #ffffff; }
+.priority-badge--medium   { background-color: #15803d; color: #ffffff; }
+.priority-badge--low      { background-color: #1d4ed8; color: #ffffff; }
+
+.priority-override-indicator {
+  margin-left: 4px;
+  color: #8a6d3b;
+}
+
+.priority-impact-label,
+.priority-confidence-label,
+.priority-type-disclaimer {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 11px;
+}
+
+.priority-override-reason {
+  display: block;
+  margin-top: 2px;
+  font-style: italic;
+}
+
+.priority-override-panel {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #eee;
+}
+
+.sort-controls {
+  margin-bottom: 8px;
+}
+
+.sort-note {
+  margin-left: 8px;
+}
+
+.compare-scans-control {
+  margin-top: 16px;
+}
+
+.comparison-disclaimer {
+  margin-bottom: 16px;
+}
+
+.compare-finding .match-label {
+  margin-left: 8px;
+}
+
+.compare-finding .match-note {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+}

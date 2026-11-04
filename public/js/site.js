@@ -433,4 +433,84 @@ $(document).ready(function(){
 	if (list === 'yes') {
 		$('.btn-list').trigger('click');
 	}
+
+	// Priority sort controls for result tab panels
+	(function initPrioritySort() {
+		var tabPaneIds = ['errors-list', 'warnings-list', 'notices-list'];
+		tabPaneIds.forEach(function (paneId) {
+			var pane = document.getElementById(paneId);
+			if (!pane) {
+				return;
+			}
+			var cards = pane.querySelectorAll('.panel.task');
+			if (cards.length < 2) {
+				return;
+			}
+
+			// Build the sort control
+			var controls = document.createElement('div');
+			controls.className = 'sort-controls';
+			controls.setAttribute('role', 'group');
+			controls.setAttribute('aria-label', 'Sort options for ' + paneId.replace('-list', '') + ' tab');
+
+			var button = document.createElement('button');
+			button.type = 'button';
+			button.className = 'btn btn-xs btn-default sort-by-priority-btn';
+			button.setAttribute('aria-pressed', 'false');
+			button.textContent = 'Sort by priority';
+
+			var note = document.createElement('span');
+			note.className = 'sort-note text-muted small';
+			note.setAttribute('aria-live', 'polite');
+			note.textContent = 'Within each priority level, rules are ordered by estimated impact category (heuristic) then by recurrence count.';
+
+			controls.appendChild(button);
+			controls.appendChild(note);
+			pane.insertBefore(controls, pane.firstChild);
+
+			// Record original order once
+			var allCards = Array.prototype.slice.call(pane.querySelectorAll('.panel.task'));
+			allCards.forEach(function (card, index) {
+				if (!card.hasAttribute('data-orig-index')) {
+					card.setAttribute('data-orig-index', index);
+				}
+			});
+
+			button.addEventListener('click', function () {
+				var pressed = button.getAttribute('aria-pressed') === 'true';
+				var currentCards = Array.prototype.slice.call(pane.querySelectorAll('.panel.task'));
+
+				if (pressed) {
+					// Restore original order
+					currentCards.sort(function (a, b) {
+						return Number(a.getAttribute('data-orig-index')) - Number(b.getAttribute('data-orig-index'));
+					});
+					button.setAttribute('aria-pressed', 'false');
+				} else {
+					// Sort: priority-order ASC, then impact-rank ASC, then count DESC
+					currentCards.sort(function (a, b) {
+						var pA = Number(a.getAttribute('data-priority-order'));
+						var pB = Number(b.getAttribute('data-priority-order'));
+						if (pA !== pB) {
+							return pA - pB;
+						}
+						var rA = Number(a.getAttribute('data-impact-rank'));
+						var rB = Number(b.getAttribute('data-impact-rank'));
+						if (rA !== rB) {
+							return rA - rB;
+						}
+						var cA = Number(a.getAttribute('data-count'));
+						var cB = Number(b.getAttribute('data-count'));
+						return cB - cA;
+					});
+					button.setAttribute('aria-pressed', 'true');
+				}
+
+				// Re-append in new order (each appendChild moves the node)
+				currentCards.forEach(function (card) {
+					pane.appendChild(card);
+				});
+			});
+		});
+	})();
 });

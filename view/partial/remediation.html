@@ -1,0 +1,56 @@
+{{!
+This file is part of Pa11y Dashboard.
+
+Pa11y Dashboard is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Pa11y Dashboard is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
+}}
+<div class="remediation-guidance">
+  <h4 class="subtitle">How to fix:</h4>
+  {{#if (if-equal rule.type "notice")}}
+    <p class="remediation-type-note text-muted">
+      This is an informational notice. Human review is required to determine whether a failure exists.
+    </p>
+  {{/if}}
+  {{#if (if-equal rule.type "warning")}}
+    <p class="remediation-type-note text-muted">
+      Pa11y has flagged this as a probable issue. Manual verification is recommended before treating it as a confirmed failure.
+    </p>
+  {{/if}}
+  {{#if rule.remediation}}
+    {{#if rule.remediation.stepLines.length}}
+      <ol class="remediation-steps">
+        {{#each rule.remediation.stepLines}}
+          <li class="remediation-step">{{this}}</li>
+        {{/each}}
+      </ol>
+    {{else}}
+      <p class="remediation-steps">{{rule.remediation.steps}}</p>
+    {{/if}}
+    {{#if rule.remediation.exampleEscaped}}
+      <h5 class="subtitle">Example:</h5>
+      <pre><code>{{{rule.remediation.exampleEscaped}}}</code></pre>
+    {{/if}}
+  {{else}}
+    <p class="text-muted remediation-fallback">
+      No specific guidance is available for this rule.
+      {{#if rule.solutions.length}}
+        Refer to:
+        <ul class="list-unstyled">
+          {{#each rule.solutions}}
+            <li><a href="{{url}}" target="_blank" rel="noopener">{{title}}</a></li>
+          {{/each}}
+        </ul>
+      {{/if}}
+    </p>
+  {{/if}}
+</div>

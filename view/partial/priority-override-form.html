@@ -1,0 +1,79 @@
+{{!
+This file is part of Pa11y Dashboard.
+
+Pa11y Dashboard is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Pa11y Dashboard is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+{{#unless @root.readonly}}
+<div class="priority-override-panel">
+  {{#if rule.isOverride}}
+    <p class="text-muted small">
+      <strong>Manual override:</strong> {{rule.priorityLevel}}
+      &mdash; <em>{{rule.overrideReason}}</em>
+    </p>
+    <form class="override-remove-form"
+          action="/{{@root.task.id}}/override/remove"
+          method="post">
+      <input type="hidden" name="rule" value="{{rule.code}}"/>
+      <button type="submit"
+              class="btn btn-link btn-sm link"
+              aria-label="Remove priority override for rule {{rule.code}}">
+        Remove override
+      </button>
+    </form>
+  {{else}}
+    <details class="override-details">
+      <summary class="btn btn-link btn-sm link">Set priority override&hellip;</summary>
+      <form class="override-set-form"
+            action="/{{@root.task.id}}/override"
+            method="post"
+            novalidate>
+        <input type="hidden" name="rule" value="{{rule.code}}"/>
+        <div class="form-group">
+          <label for="override-level-{{rule.code}}">Priority level</label>
+          <select id="override-level-{{rule.code}}"
+                  name="level"
+                  class="form-control input-sm"
+                  required>
+            <option value="">&mdash; select &mdash;</option>
+            <option value="Critical">Critical</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="override-reason-{{rule.code}}">Reason (required)</label>
+          <input type="text"
+                 id="override-reason-{{rule.code}}"
+                 name="reason"
+                 class="form-control input-sm"
+                 placeholder="Describe why this priority level applies"
+                 required
+                 aria-required="true"/>
+          {{#if (if-equal @root.overrideErrorRule rule.code)}}
+            <span class="help-block text-danger"
+                  role="alert"
+                  id="override-reason-error-{{rule.code}}"
+                  aria-live="assertive">
+              A non-empty reason and a valid priority level are required.
+            </span>
+          {{/if}}
+        </div>
+        <button type="submit" class="btn btn-default btn-sm">Save override</button>
+      </form>
+    </details>
+  {{/if}}
+</div>
+{{/unless}}

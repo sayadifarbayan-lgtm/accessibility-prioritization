@@ -153,7 +153,11 @@ function loadRoutes(app, config) {
 		require('./route/task/edit')(app);
 		require('./route/task/ignore')(app);
 		require('./route/task/unignore')(app);
+		require('./route/task/override')(app);
 	}
+
+	// Compare is read-only; must be registered before task/index (greedy /:id match)
+	require('./route/task/compare')(app);
 
 	// Needs to be loaded after `/route/new`
 	require('./route/task/index')(app);

@@ -1,0 +1,659 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create `data/heuristic-impact.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740547190
+      },
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740557991
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741445750
+      }
+    ],
+    "1.2 Create `data/remediation-guidance.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740547444
+      },
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740561350
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741448073
+      }
+    ],
+    "1.3 Add `data/overrides.json` entry to `.gitignore`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740547619
+      },
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740565484
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741450661
+      }
+    ],
+    "2.1 Create `lib/overrides.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740547857
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741491972
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741678474
+      }
+    ],
+    "2.2 Write unit tests for `lib/overrides.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740547971
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741684241
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741921309
+      }
+    ],
+    "3.1 Create `lib/prioritise.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740548089
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741494351
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741680913
+      }
+    ],
+    "3.2 Write unit tests for `lib/prioritise.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740548218
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741686601
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741924427
+      }
+    ],
+    "4.1 Create `lib/compare.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740548344
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741688902
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741927500
+      }
+    ],
+    "4.2 Write unit tests for `lib/compare.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740548463
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741932092
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742095490
+      }
+    ],
+    "5. Checkpoint — pure logic layer complete": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740548577
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742120717
+      }
+    ],
+    "6.1 Add `lower-case` helper to `view/helper/string.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740548715
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741497691
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741673458
+      }
+    ],
+    "6.2 Add `if-equal` helper to `view/helper/conditionals.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740548836
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741500063
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741675850
+      }
+    ],
+    "7.1 Create `view/partial/priority-badge.html`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740548955
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741934909
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742098864
+      }
+    ],
+    "7.2 Create `view/partial/remediation.html`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740549083
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741938045
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742102448
+      }
+    ],
+    "7.3 Create `view/partial/priority-override-form.html`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740549258
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741940867
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742105362
+      }
+    ],
+    "7.4 Create `view/partial/task-compare-control.html`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740549384
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742124033
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742438653
+      }
+    ],
+    "7.5 Create `view/partial/compare-finding-row.html`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740549506
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741944344
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742108551
+      }
+    ],
+    "8.1 Create `view/compare.html`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740549631
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742448772
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742651118
+      }
+    ],
+    "9.1 Create `public/css/priority.css`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740549768
+      },
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740567822
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741453133
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741489108
+      }
+    ],
+    "10.1 Add prioritisation and remediation calls to `view/presenter/result.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740549879
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742127379
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742441860
+      }
+    ],
+    "11.1 Create `view/presenter/compare.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740549997
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742130472
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742445038
+      }
+    ],
+    "12.1 Create `route/task/compare.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740550139
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742451574
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742654105
+      }
+    ],
+    "12.2 Create `route/task/override.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740550264
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742454398
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742656949
+      }
+    ],
+    "13.1 Register new routes and link CSS in `app.js` and `view/layout/default.html`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740550449
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742664579
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742999580
+      }
+    ],
+    "13.2 Update `route/task/index.js` with additive response fields": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740550585
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742667633
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793743003085
+      }
+    ],
+    "13.3 Update `view/partial/result.html` with priority badge, override form, and remediation": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740550719
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742670923
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793743006328
+      }
+    ],
+    "13.4 Update `view/task/index.html` with compare scans control": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740550847
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742676748
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793743009374
+      }
+    ],
+    "13.5 Add client-side sort control to `public/js/site.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740550964
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742679765
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793743099828
+      }
+    ],
+    "14. Checkpoint — full stack wired": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740551081
+      },
+      {
+        "executionId": "fc042a6b-aea2-40ea-ae39-c52df1100165",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793744708111
+      }
+    ],
+    "15.1 Create `test/integration/route/task/compare.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740551223
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793743213817
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793743392626
+      }
+    ],
+    "15.2 Create `test/integration/route/task/override.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740551362
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793743217635
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793743395839
+      },
+      {
+        "executionId": "fc042a6b-aea2-40ea-ae39-c52df1100165",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793744722559
+      }
+    ],
+    "16.1 Create `test/unit/data/heuristic-impact.js`": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740551805
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742457425
+      },
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742660019
+      }
+    ],
+    "17. Final checkpoint — all tests pass": [
+      {
+        "executionId": "a243dfa7-9809-40d3-86e1-d81b7b58c59f",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793740552039
+      },
+      {
+        "executionId": "fc042a6b-aea2-40ea-ae39-c52df1100165",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793744711350
+      }
+    ],
+    "1. Create static data files": [
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741450804
+      }
+    ],
+    "9. Create CSS for priority badges": [
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741489240
+      }
+    ],
+    "6. Add Handlebars helpers": [
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741676029
+      }
+    ],
+    "2. Implement the override I/O module": [
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741921453
+      }
+    ],
+    "3. Implement the Prioritisation Engine": [
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793741924550
+      }
+    ],
+    "4. Implement the Comparison Engine": [
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742095617
+      }
+    ],
+    "7. Create new Handlebars partials": [
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742438810
+      }
+    ],
+    "10. Extend `view/presenter/result.js`": [
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742441966
+      }
+    ],
+    "11. Create `view/presenter/compare.js`": [
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742445142
+      }
+    ],
+    "8. Create the comparison page view": [
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742651251
+      }
+    ],
+    "12. Create new route handlers": [
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742657108
+      }
+    ],
+    "16. Write unit tests for `data/heuristic-impact.js`": [
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793742660113
+      }
+    ],
+    "13. Update existing files with additive changes": [
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793743099966
+      }
+    ],
+    "15. Write integration tests for new routes": [
+      {
+        "executionId": "b5dde530-80d1-4aa9-8e26-5fd678da4755",
+        "chatSessionId": "sess_fbbd305f-2b24-4cf0-8140-e6f6de6eb162",
+        "timestamp": 1793743395995
+      }
+    ]
+  }
+}
