@@ -38,6 +38,15 @@ module.exports = function taskIndex(app) {
 					ruleIgnored: (typeof request.query['rule-ignored'] !== 'undefined'),
 					ruleUnignored: (typeof request.query['rule-unignored'] !== 'undefined'),
 					hasOneResult: (presentedResults.length < 2),
+					allResults: results.map(result => ({
+						id: result.id,
+						date: new Date(result.date)
+					})),
+					hasMultipleResults: results.length >= 2,
+					overrideError: (typeof request.query['override-error'] !== 'undefined'),
+					overrideErrorRule: request.query.rule || null,
+					ruleOverridden: (typeof request.query['rule-overridden'] !== 'undefined'),
+					ruleOverrideRemoved: (typeof request.query['override-removed'] !== 'undefined'),
 					isTaskPage: true
 				});
 			});

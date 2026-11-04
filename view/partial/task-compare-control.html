@@ -1,0 +1,47 @@
+{{!
+This file is part of Pa11y Dashboard.
+
+Pa11y Dashboard is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Pa11y Dashboard is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{#if hasMultipleResults}}
+<div class="well compare-scans-control">
+  <h2 class="h4">Compare two scans</h2>
+  <form action="/{{@root.task.id}}/compare" method="get" class="form-inline compare-form">
+    <div class="form-group">
+      <label for="compare-earlier">Earlier scan</label>
+      <select id="compare-earlier" name="earlierId" class="form-control" required>
+        {{#each allResults}}
+          <option value="{{id}}">{{date-format date format="DD MMM YYYY HH:mm"}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="compare-later">Later scan</label>
+      <select id="compare-later" name="laterId" class="form-control" required>
+        {{#each allResults}}
+          <option value="{{id}}">{{date-format date format="DD MMM YYYY HH:mm"}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-default">
+      <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>
+      Compare scans
+    </button>
+  </form>
+  <p class="text-muted small">
+    Select two different scans to see which issues have been resolved, which persist,
+    and which are new. Results are inferred from automated data and are not verified fixes.
+  </p>
+</div>
+{{/if}}

@@ -24,4 +24,14 @@ function helper(hbs) {
 			return options.fn(this);
 		}
 	});
+
+	// Check if two values are strictly equal
+	hbs.registerHelper('if-equal', function(left, right, options) {
+		const isEqual = left === right;
+		if (options && typeof options.fn === 'function') {
+			// eslint-disable-next-line no-invalid-this
+			return isEqual ? options.fn(this) : options.inverse(this);
+		}
+		return isEqual;
+	});
 }

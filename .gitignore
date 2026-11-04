@@ -102,3 +102,7 @@ Temporary Items
 # Config files (ignore credentials, keep samples)
 config/*.json
 !config/*.sample.json
+
+# Runtime overrides (generated at runtime, not for version control)
+data/overrides.json
+data/overrides.json.tmp
