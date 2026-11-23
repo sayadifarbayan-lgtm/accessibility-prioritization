@@ -19,6 +19,16 @@ const kleur = require('kleur');
 
 const config = require('./config');
 const initDashboard = require('./app');
+const {assertSafeForPublicDeployment, redactConnectionString} = require('./lib/deployment-safety');
+const {disableScheduledScans} = require('./lib/scheduler-control');
+
+// Refuse to start a public deployment that would allow anonymous write access
+try {
+	assertSafeForPublicDeployment(config, process.env);
+} catch (error) {
+	console.error(error.message);
+	process.exit(1);
+}
 
 initDashboard(config, (error, app) => {
 	if (error) {
@@ -72,12 +82,25 @@ function setupErrorLogging(app) {
 	});
 }
 
+// Describe the scheduled-scan state accurately (an unset cron falls back to 00:30 daily)
+function describeSchedule(scansDisabled) {
+	if (scansDisabled) {
+		return 'scheduled scans DISABLED (DISABLE_SCHEDULED_SCANS=true)';
+	}
+	return config.webservice.cron || '0 30 0 * * * (webservice default)';
+}
+
 // Start webservice unless we're connecting to an already-running external webservice instead
 function startWebservice() {
 	if (typeof config.webservice !== 'object') {
 		return;
 	}
 	const mode = process.env.NODE_ENV;
+	// The webservice always schedules a daily scan of every task unless this is switched off
+	const scansDisabled = process.env.DISABLE_SCHEDULED_SCANS === 'true';
+	if (scansDisabled) {
+		disableScheduledScans();
+	}
 	console.log(kleur.underline().cyan('\nPa11y Webservice starting'));
 	initService(config.webservice, (webserviceError, webservice) => {
 		if (webserviceError) {
@@ -87,7 +110,7 @@ function startWebservice() {
 		console.log(kleur.cyan('\nPa11y Webservice started'));
 		console.log(kleur.grey('mode:     %s'), mode);
 		console.log(kleur.grey('uri:      %s'), webservice.server.info.uri);
-		console.log(kleur.grey('database: %s'), config.webservice.database);
-		console.log(kleur.grey('cron:     %s'), config.webservice.cron);
+		console.log(kleur.grey('database: %s'), redactConnectionString(config.webservice.database));
+		console.log(kleur.grey('cron:     %s'), describeSchedule(scansDisabled));
 	});
 }

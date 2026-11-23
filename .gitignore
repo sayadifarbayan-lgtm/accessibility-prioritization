@@ -106,3 +106,6 @@ config/*.json
 # Runtime overrides (generated at runtime, not for version control)
 data/overrides.json
 data/overrides.json.tmp
+
+# Local MongoDB backups made by deploy/mongo-migrate.ps1 (contain scan data)
+backups/

@@ -38,7 +38,9 @@ module.exports = function override(app) {
 
 		try {
 			overridesStore.set(taskId, rule, level, reason);
-		} catch {
+		} catch (error) {
+			// Log the real reason (for example a read-only volume) so it can be diagnosed.
+			console.error(`Could not save priority override: ${error.message}`);
 			return response.redirect(
 				`/${taskId}?override-error=1&rule=${encodeURIComponent(rule)}`
 			);

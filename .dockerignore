@@ -31,3 +31,28 @@ config/test.json
 
 # Debug logs
 npm-debug.log
+
+# --- Added for the production (Railway) image ---
+
+# Spec/IDE/agent working files
+.kiro
+.vscode
+.idea
+
+# Never ship secrets or local state
+.env
+.env.*
+!.env.example
+data/overrides.json
+data/overrides.json.tmp
+backups
+*.log
+
+# Only the sample config files are allowed in the image
+config/*.json
+!config/*.sample.json
+
+# Deployment helper scripts and the example Dockerfile are not needed at runtime
+deploy
+Dockerfile.example
+coverage

@@ -25,6 +25,7 @@ const {nanoid} = require('nanoid');
 const http = require('http');
 const path = require('path');
 const pkg = require('./package.json');
+const {basicAuth} = require('./lib/deployment-safety');
 
 module.exports = initApp;
 
@@ -42,7 +43,7 @@ function initApp(config, callback) {
 	app.server = http.createServer(app.express);
 	app.webservice = createClient(webserviceUrl);
 
-	loadMiddleware(app);
+	loadMiddleware(app, config);
 
 	// View engine
 	loadViewEngine(app, config);
@@ -64,7 +65,7 @@ function defaultConfig(config) {
 	return config;
 }
 
-function loadMiddleware(app) {
+function loadMiddleware(app, config) {
 	app.express.use(compression());
 
 	// Adds an ID to every request, used later for logging
@@ -84,6 +85,12 @@ function loadMiddleware(app) {
 	// Log the end of all HTTP requests
 	const endLog = '[:date[iso] #:id] Completed :status :res[content-length] in :response-time ms';
 	app.express.use(morgan(endLog));
+
+	// Optional HTTP Basic Auth in front of everything (including static files).
+	// Only the /health probe is exempt. Registered after logging so 401s are logged.
+	if (config.basicAuth) {
+		app.express.use(basicAuth(config.basicAuth));
+	}
 
 	// Public files
 	app.express.use(express.static(path.join(__dirname, 'public'), {

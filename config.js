@@ -44,11 +44,23 @@ if (fs.existsSync(jsonPath)) {
 		}
 	}
 
+	// Optional HTTP Basic Auth for the whole dashboard (used for public demo deployments).
+	// Both variables must be set together; neither is ever hardcoded.
+	const basicAuthUser = env('BASIC_AUTH_USER', '');
+	const basicAuthPassword = env('BASIC_AUTH_PASSWORD', '');
+	if (Boolean(basicAuthUser) !== Boolean(basicAuthPassword)) {
+		throw new Error('BASIC_AUTH_USER and BASIC_AUTH_PASSWORD must be set together');
+	}
+
 	module.exports = {
 		port: Number(env('PORT', '4000')),
 		noindex: env('NOINDEX', 'true') === 'true',
 		readonly: env('READONLY', 'false') === 'true',
-		webservice: env('WEBSERVICE_URL', webserviceConfig)
+		webservice: env('WEBSERVICE_URL', webserviceConfig),
+		basicAuth: basicAuthUser ? {
+			user: basicAuthUser,
+			password: basicAuthPassword
+		} : undefined
 	};
 }
 
